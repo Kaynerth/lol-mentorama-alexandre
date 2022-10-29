@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -9,6 +10,7 @@ public class FullScreenChange : MonoBehaviour
     private void Awake()
     {
         FullscreenToogle();
+        gameObject.GetComponent<Toggle>().isOn = Convert.ToBoolean(PlayerPrefs.GetInt("FullScreenSave"));
     }
 
     public void FullscreenToogle()
