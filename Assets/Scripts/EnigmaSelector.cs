@@ -21,34 +21,41 @@ public class EnigmaSelector : MonoBehaviour
 
     private void Start()
     {
-        scoreText.text = "Score: " + score.ToString();
-        highScore = PlayerPrefs.GetInt("High Score", 0);
-        highScoreText.text = "High Score: " + highScore.ToString();
-        index = Random.Range(0, list.enigmasList.Count);
+        if (list.enigmasList.Count <= 0)
+        {
+            SceneManager.LoadScene("MenuScene");
+        }
+        else
+        {
+            scoreText.text = "Score: " + score.ToString();
+            highScore = PlayerPrefs.GetInt("HighScore", 0);
+            highScoreText.text = "High Score: " + highScore.ToString();
+            index = Random.Range(0, list.enigmasList.Count);
 
-        possibleAnswers.Add(list.enigmasList[index].AnswerCorrect);
-        possibleAnswers.Add(list.enigmasList[index].AnswerWrong1);
-        possibleAnswers.Add(list.enigmasList[index].AnswerWrong2);
-        possibleAnswers.Add(list.enigmasList[index].AnswerWrong3);
+            possibleAnswers.Add(list.enigmasList[index].AnswerCorrect);
+            possibleAnswers.Add(list.enigmasList[index].AnswerWrong1);
+            possibleAnswers.Add(list.enigmasList[index].AnswerWrong2);
+            possibleAnswers.Add(list.enigmasList[index].AnswerWrong3);
 
-        int indexAnswers = Random.Range(0, possibleAnswers.Count);
+            int indexAnswers = Random.Range(0, possibleAnswers.Count);
 
-        questionText.text = list.enigmasList[index].question;
+            questionText.text = list.enigmasList[index].question;
 
-        buttonText1.text = possibleAnswers[indexAnswers];
-        possibleAnswers.Remove(possibleAnswers[indexAnswers]);
-        indexAnswers = Random.Range(0, possibleAnswers.Count);
+            buttonText1.text = possibleAnswers[indexAnswers];
+            possibleAnswers.Remove(possibleAnswers[indexAnswers]);
+            indexAnswers = Random.Range(0, possibleAnswers.Count);
 
-        buttonText2.text = possibleAnswers[indexAnswers];
-        possibleAnswers.Remove(possibleAnswers[indexAnswers]);
-        indexAnswers = Random.Range(0, possibleAnswers.Count);
+            buttonText2.text = possibleAnswers[indexAnswers];
+            possibleAnswers.Remove(possibleAnswers[indexAnswers]);
+            indexAnswers = Random.Range(0, possibleAnswers.Count);
 
-        buttonText3.text = possibleAnswers[indexAnswers];
-        possibleAnswers.Remove(possibleAnswers[indexAnswers]);
-        indexAnswers = Random.Range(0, possibleAnswers.Count);
+            buttonText3.text = possibleAnswers[indexAnswers];
+            possibleAnswers.Remove(possibleAnswers[indexAnswers]);
+            indexAnswers = Random.Range(0, possibleAnswers.Count);
 
-        buttonText4.text = possibleAnswers[indexAnswers];
-        possibleAnswers.Remove(possibleAnswers[indexAnswers]);
+            buttonText4.text = possibleAnswers[indexAnswers];
+            possibleAnswers.Remove(possibleAnswers[indexAnswers]);
+        }
     }
 
     public void OnClick(TMP_Text buttonText)
