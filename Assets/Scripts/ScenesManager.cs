@@ -16,6 +16,18 @@ public class ScenesManager : MonoBehaviour
     public Button hardModeButton;
     public Button backButton;
 
+    private void Update()
+    {
+        if ((Input.GetKeyDown(KeyCode.Escape)) && (SceneManager.GetActiveScene().name == "EasyModeScene" || SceneManager.GetActiveScene().name == "HardModeScene"))
+        {
+            SceneManager.LoadScene("EndGameScene");
+        }
+        else if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            SceneManager.LoadScene("MenuScene");
+        }
+    }
+
     public void NewGameButton()
     {
         backgroundImage.gameObject.SetActive(false);
@@ -33,12 +45,12 @@ public class ScenesManager : MonoBehaviour
 
     public void EasyModeButton()
     {
-        SceneManager.LoadScene("");
+        SceneManager.LoadScene("EasyModeScene");
     }
 
     public void HardModeButton()
     {
-        SceneManager.LoadScene("");
+        SceneManager.LoadScene("HardModeScene");
     }
 
     public void OptionsButton()
