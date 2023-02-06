@@ -251,6 +251,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   audioSource: {fileID: 48609323}
   onClickSound: {fileID: 8300000, guid: 349fc649e3e594545be4521e11b5cb0e, type: 3}
+  effectsSlider: {fileID: 0}
+  musicSlider: {fileID: 0}
+  musicAudioSource: {fileID: 1478385172}
 --- !u!4 &48609325
 Transform:
   m_ObjectHideFlags: 0
