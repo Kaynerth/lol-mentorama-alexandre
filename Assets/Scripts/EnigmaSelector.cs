@@ -48,6 +48,8 @@ public class EnigmaSelector : MonoBehaviour
 
     private void Start()
     {
+        PlayerPrefs.SetInt("Score", 0);
+
         if (SceneManager.GetActiveScene().name == "EasyModeScene")
         {
             buttonText1.text = wrongAnswerBonus.ToString();
