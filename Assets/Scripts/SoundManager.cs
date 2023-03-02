@@ -14,16 +14,16 @@ public class SoundManager : MonoBehaviour
     {
         if (SceneManager.GetActiveScene().name == "MenuScene" || SceneManager.GetActiveScene().name == "EndGameScene")
         {
-            musicAudioSource.volume = PlayerPrefs.GetFloat("MusicVolumeSave");
-            audioSource.volume = PlayerPrefs.GetFloat("EffectsVolumeSave");
+            musicAudioSource.volume = PlayerPrefs.GetFloat("MusicVolumeSave", 0.5f);
+            audioSource.volume = PlayerPrefs.GetFloat("EffectsVolumeSave", 0.5f);
         }
 
         else
         {
             audioSource.volume = effectsSlider.value;
             musicAudioSource.volume = musicSlider.value;
-            musicSlider.value = PlayerPrefs.GetFloat("MusicVolumeSave");
-            effectsSlider.value = PlayerPrefs.GetFloat("EffectsVolumeSave");
+            musicSlider.value = PlayerPrefs.GetFloat("MusicVolumeSave", 0.5f);
+            effectsSlider.value = PlayerPrefs.GetFloat("EffectsVolumeSave", 0.5f);
         }
     }
 
